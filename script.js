@@ -41,11 +41,16 @@ async function init() {
     };
 
     // Get tokens
-    document.getElementById("getTokens").onclick = async () => {
-      const amount = document.getElementById("getTokenAmount").value;
-      const tx = await contract.getTokens(ethers.utils.parseEther(amount));
-      await tx.wait();
-      alert("Tokens transferred!");
+    // document.getElementById("getTokens").onclick = async () => {
+    //   const amount = document.getElementById("getTokenAmount").value;
+    //   const tx = await contract.getTokens(ethers.utils.parseEther(amount));
+    //   await tx.wait();
+    //   alert("Tokens transferred!");
+    // };
+    document.getElementById("getTokens").onclick = () => {
+      let amountFromKills = document.getElementById("getTokenAmount").value;
+      amountFromKills = c2_callFunction("getKills");
+      document.getElementById("getTokenAmount").value = c2_callFunction("getKills");
     };
 
     // Register organisation
