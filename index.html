@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Coins DApp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div class="navBar" >
+        <h4>Ghost Shooter</h4>
+        <h4>Connect Wallet</h4>
+    </div>
+    
+    <!-- ##################################################################################################################################### -->
+    <div id="gameContainer">
+        <iframe src="https://ms-10182.github.io/ghost-game/" frameborder="0" id="gameFrame" style="width: 100%; height: 80vh;"></iframe>
+    </div>
+    <!-- ##################################################################################################################################### -->
+
+
+    <!-- ##################################################################################################################################### -->
+    <script>
+        // Sample data fetched from backend
+        const data = [
+            { name: "Card 1", description: "This is the first card.", funds_remaining: "funds1", org_address: "address1" },
+            { name: "Card 2", description: "This is the second card.", funds_remaining: "funds2", org_address: "address2"  },
+            { name: "Card 3", description: "This is the third card.", funds_remaining: "funds3", org_address: "address3"  },
+            { name: "Card 3", description: "This is the third card.", funds_remaining: "funds3", org_address: "address3" },
+            { name: "Card 3", description: "This is the third card.", funds_remaining: "funds3", org_address: "address3" },
+            { name: "Card 3", description: "This is the third card.", funds_remaining: "funds3", org_address: "address3" }
+        ];
+        
+        function createCard(cardData) {
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('cardForTokens');
+
+                const leftPartDiv = document.createElement('div');
+                leftPartDiv.classList.add('leftPartOfCardForTokens');
+
+                const nameHeader = document.createElement('h4');
+                nameHeader.textContent = cardData.name;
+
+                const descriptionHeader = document.createElement('h3');
+                descriptionHeader.textContent = cardData.description;
+
+                const fundsHeader = document.createElement('h5');
+                fundsHeader.textContent = cardData.funds_remaining;
+
+                const addressHeader = document.createElement('h5');
+                addressHeader.textContent = cardData.org_address;
+
+                const rightPartDiv = document.createElement('div');
+                rightPartDiv.classList.add('rightPartOfCardForTokens');
+
+                const checkboxInput = document.createElement('input');
+                checkboxInput.setAttribute('type', 'checkbox');
+                checkboxInput.setAttribute('id', `checkbox${data.indexOf(cardData) + 1}`);
+                checkboxInput.setAttribute('name', `option${data.indexOf(cardData) + 1}`);
+                // checkboxInput.checked = cardData.checked === "true"; 
+                // Convert string to boolean
+
+                // Append elements
+                leftPartDiv.appendChild(nameHeader);
+                leftPartDiv.appendChild(descriptionHeader);
+                leftPartDiv.appendChild(fundsHeader);
+                leftPartDiv.appendChild(addressHeader);
+
+                rightPartDiv.appendChild(checkboxInput);
+
+                cardDiv.appendChild(leftPartDiv);
+                cardDiv.appendChild(rightPartDiv);
+
+                return cardDiv;
+            }
+
+        
+
+        function renderCards(cardDataArray) {
+            const cardContainer = document.getElementById("mainContainerForTokenCards")
+            cardContainer.innerHTML = ''; // Clear existing cards
+
+            cardDataArray.forEach(cardData => {
+                const card = createCard(cardData);
+                cardContainer.appendChild(card);
+            });
+        }
+        // Simulate fetching data from backend
+        // In a real scenario, you would use fetch or XMLHttpRequest to get data from backend
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards(data);
+        });
+    </script>
+    <!-- ##################################################################################################################################### -->
+    <div id="mainContainerForTokenCards">
+        <!-- Card-1 -->
+        <div class="cardForTokens">
+            <div class="leftPartOfCardForTokens">
+                <h4>Logo</h4>
+                <h3>Main Name</h3>
+                <h5>Sub Name</h5>
+            </div>
+            <div class="rightPartOfCardForTokens">
+                <input type="checkbox" id="checkbox1" name="option1">
+            </div>
+        </div>
+        <!-- Card-2 -->
+        <div class="cardForTokens">
+            <div class="leftPartOfCardForTokens">
+                <h4>Logo</h4>
+                <h3>Main Name</h3>
+                <h5>Sub Name</h5>
+            </div>
+            <div class="rightPartOfCardForTokens">
+                <input type="checkbox" id="checkbox1" name="option1">
+            </div>
+        </div>
+        <!-- Card-3 -->
+        <div class="cardForTokens">
+            <div class="leftPartOfCardForTokens">
+                <h4>Logo</h4>
+                <h3>Main Name</h3>
+                <h5>Sub Name</h5>
+            </div>
+            <div class="rightPartOfCardForTokens">
+                <input type="checkbox" id="checkbox1" name="option1">
+            </div>
+        </div>
+        <!-- Card-4 -->
+        <div class="cardForTokens">
+            <div class="leftPartOfCardForTokens">
+                <h4>Logo</h4>
+                <h3>Main Name</h3>
+                <h5>Sub Name</h5>
+            </div>
+            <div class="rightPartOfCardForTokens">
+                <input type="checkbox" id="checkbox1" name="option1">
+            </div>
+        </div>
+        <!-- Card-5 -->
+        <div class="cardForTokens">
+            <div class="leftPartOfCardForTokens">
+                <h4>Logo</h4>
+                <h3>Main Name</h3>
+                <h5>Sub Name</h5>
+            </div>
+            <div class="rightPartOfCardForTokens">
+                <input type="checkbox" id="checkbox1" name="option1">
+            </div>
+        </div>
+        <!-- Card-6 -->
+        <div class="cardForTokens">
+            <div class="leftPartOfCardForTokens">
+                <h4>Logo</h4>
+                <h3>Main Name</h3>
+                <h5>Sub Name</h5>
+            </div>
+            <div class="rightPartOfCardForTokens">
+                <input type="checkbox" id="checkbox1" name="option1">
+            </div>
+        </div>
+        <!-- Card-7 -->
+        <div class="cardForTokens">
+            <div class="leftPartOfCardForTokens">
+                <h4>Logo</h4>
+                <h3>Main Name</h3>
+                <h5>Sub Name</h5>
+            </div>
+            <div class="rightPartOfCardForTokens">
+                <input type="checkbox" id="checkbox1" name="option1">
+            </div>
+        </div>
+    </div>
+    <div class="accountsContainer">
+        <h1>Ghost Coins DApp</h1>
+        
+        <div id="account"></div>
+        
+        <h2>Check Balance</h2>
+        <button id="checkBalance">Check My Balance</button>
+        <div id="balance"></div>
+        
+        <h2>Donate to Organisation</h2>
+        <input type="text" id="orgAddress" placeholder="Organisation Address">
+        <input type="number" id="donationAmount" placeholder="Amount">
+        <button id="donate">Donate</button>
+        
+        <h2>Get Tokens</h2>
+        <input type="number" id="getTokenAmount" placeholder="Amount">
+        <button id="getTokens">Get Tokens</button>
+        
+        <h2>Register Organisation</h2>
+        <input type="text" id="orgName" placeholder="Org Name">
+        <input type="text" id="orgDescription" placeholder="Org Description">
+        <input type="number" id="orgFunds" placeholder="Funds Remaining">
+        <button id="registerOrg">Register Organisation</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
